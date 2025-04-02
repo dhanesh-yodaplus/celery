@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+
+# Env
+myvenv/
+env/
+.venv/
+venv/
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Django
+*.sqlite3
+db.sqlite3
+*.log
+local_settings.py
+
+# Celery beat schedule file
+celerybeat-schedule
+*.pid
+
+# Pytest
+htmlcov/
+.tox/
+.coverage
+.cache
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# dotenv
+.env
+
+# Migrations (optional if you're pushing them later)
+*/migrations/__pycache__/
+*/migrations/*.pyc
