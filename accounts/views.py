@@ -14,13 +14,20 @@ def register(request):
             user.is_active = False  # user needs to verify via email
             user.save()
 
+            print("Form is valid, user saved, queuing email.")
+
             # Queue email sending via Celery
             send_verification_email.delay(user.id)
 
             return render(request, 'accounts/thankyou.html')
+        else:
+            print("Form is invalid:", form.errors)
+            return render(request, 'accounts/register.html', {'form': form})  # THIS is where form is used
     else:
-        form = UserRegistrationForm()
-    return render(request, 'accounts/register.html', {'form': form})
+        form = UserRegistrationForm()  # For GET requests, show an empty form
+
+    return render(request, 'accounts/register.html', {'form': form})  # Pass the form to template
+
 
 
 def verify_email(request):
